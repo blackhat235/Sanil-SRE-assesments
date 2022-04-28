@@ -1,22 +1,14 @@
-from flask import Flask
+FROM python
 
+WORKDIR /random-app
+# We copy just the requirements.txt first to leverage Docker cache
+COPY ./requirements.txt .
 
-app=Flask(__name__)
+#this runs when image is built
+RUN pip install -r requirements.txt
 
-@app.route("/")
-def hello():
-    return"hello world"
+COPY app.py .
 
+EXPOSE 5000
 
-@app.route("/number")
-def rand_numb():
-    import random
-
-    from random import randint
-
-    Random_number=random.randint(1,1000)
-    return str(Random_number)
-
-
-if __name__=='__main__':
-    app.run(debug=True,host="0.0.0.0")
+ENTRYPOINT [ "python" ,"app.py" ]
