@@ -5,7 +5,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def hello():
-    return"Hello World"
+    return"Welcome to my Hello World application"
 
 
 @app.route("/number")
@@ -14,7 +14,7 @@ def rand_num():
     from random import randint
 
     random_number = random.randint(1,1000)
-    return str(random_number)
+    return str("The random number is :" + random_number)
 
 if __name__=='__main__':
     app.run(debug=True,host="0.0.0.0")
