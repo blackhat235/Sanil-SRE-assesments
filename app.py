@@ -14,7 +14,7 @@ def rand_num():
     from random import randint
 
     random_number = random.randint(1,1000)
-    return str("The random number is :" + random_number)
+    return("The random number is :" +str(random_number))
 
 if __name__=='__main__':
     app.run(debug=True,host="0.0.0.0")
