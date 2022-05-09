@@ -1,7 +1,7 @@
-resource "aws_security_group" "allow various ports as per requirement" {
+resource "aws_security_group" "allow-ssh" {
   vpc_id      = aws_vpc.myvpc.id
   name        = "allow-ssh"
-  description = "security group that allows various ports and all egress traffic"
+  description = "security group that allows ssh and all egress traffic"
   egress {
     from_port   = 0
     to_port     = 0
